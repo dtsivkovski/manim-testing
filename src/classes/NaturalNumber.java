@@ -8,8 +8,14 @@ package classes;
 * 
 */
 public class NaturalNumber extends Number {
-    private int val;
+    protected int val;
 
+    /**
+     * Default constructor that initializes a natural number with a value of 0.
+     */
+    public NaturalNumber() {
+        this.val = 0;
+    }
     /**
      * Creates a natural number object.
      * @param value the value of the natural number. Will override to zero if a negative value is passed in.
@@ -18,6 +24,14 @@ public class NaturalNumber extends Number {
         // checks if value is less than zero
         if (value < 0) this.val = 0;
         else this.val = value;
+    }
+    /**
+     * Creates a natural number object from a number.
+     * @param n the number object whose value will be copied to the Natural Number.
+     */
+    public NaturalNumber(Number n) {
+        if (n.getValue() < 0) this.val = 0;
+        else this.val = n.getValue();
     }
 
     /**
@@ -51,6 +65,34 @@ public class NaturalNumber extends Number {
         // checks if value is less than zero
         if (value < 0) this.val = 0;
         else this.val = value;
+    }
+
+    public static void main(String[] args) {
+        
+        // Test constructor and getValue
+        NaturalNumber num1 = new NaturalNumber(5);
+        System.out.println("Expected: 5, Actual: " + num1.getValue());
+
+        NaturalNumber num2 = new NaturalNumber(0);
+        System.out.println("Expected: 0, Actual: " + num2.getValue());
+
+        NaturalNumber num3 = new NaturalNumber(-3);
+        System.out.println("Expected: 0, Actual: " + num3.getValue());
+
+        // Test getSuccessor
+        System.out.println("Expected: 6, Actual: " + num1.getSuccessor());
+
+        // Test updateToSuccessor
+        num1.updateToSuccessor();
+        System.out.println("Expected: 6, Actual: " + num1.getValue());
+
+        // Test setValue
+        num1.setValue(10);
+        System.out.println("Expected: 10, Actual: " + num1.getValue());
+
+        num1.setValue(-5);
+        System.out.println("Expected: 0, Actual: " + num1.getValue());
+        
     }
     
 }
