@@ -25,7 +25,7 @@ public class PositiveInteger extends NaturalNumber {
      * Creates a positive number with a value of 1 or greater from an existing number object
      * @param n An existing number object whose value is to be copied 
      */
-    public PositiveInteger(Number n) {
+    public PositiveInteger(BaseNumber n) {
         super();
         if (n.getValue() <= 0) this.val = 1;
         else this.val = n.getValue();
@@ -68,6 +68,6 @@ public class PositiveInteger extends NaturalNumber {
 
         num1.setValue(-5);
         System.out.println("Expected: 1, Actual: " + num1.getValue());
-        
+
     }
 }

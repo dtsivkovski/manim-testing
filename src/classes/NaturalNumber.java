@@ -7,7 +7,7 @@ package classes;
 * @author Daniel Tsivkovski
 * 
 */
-public class NaturalNumber extends Number {
+public class NaturalNumber extends BaseNumber {
     protected int val;
 
     /**
@@ -29,7 +29,7 @@ public class NaturalNumber extends Number {
      * Creates a natural number object from a number.
      * @param n the number object whose value will be copied to the Natural Number.
      */
-    public NaturalNumber(Number n) {
+    public NaturalNumber(BaseNumber n) {
         if (n.getValue() < 0) this.val = 0;
         else this.val = n.getValue();
     }
@@ -92,7 +92,7 @@ public class NaturalNumber extends Number {
 
         num1.setValue(-5);
         System.out.println("Expected: 0, Actual: " + num1.getValue());
-        
+
     }
     
 }

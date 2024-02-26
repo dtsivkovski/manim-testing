@@ -1,13 +1,13 @@
 package classes;
 
-public class Number {
+public class BaseNumber {
 
     private int val;
 
     /**
      * Default constructor for a Number object, defaults to a value of 0.
      */
-    public Number() {
+    public BaseNumber() {
         this.val = 0;
     }
 
@@ -15,7 +15,7 @@ public class Number {
      * Constructor for a value for a number
      * @param value the numerical value for the number
      */
-    public Number(int value) {
+    public BaseNumber(int value) {
         this.val = value;
     }
 
@@ -39,7 +39,7 @@ public class Number {
      * @param o Other object with the title 
      * @return Integer for comparison value as defined by compareTo
      */
-    public int compareTo(Number o) {
+    public int compareTo(BaseNumber o) {
         // can only compare numbers
         if (this.val > o.val) {
             return 1;
@@ -76,12 +76,33 @@ public class Number {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Number)) {
+        if (!(o instanceof BaseNumber)) {
             return false;
         }
         // Cast to number and check
-        Number number = (Number) o;
+        BaseNumber number = (BaseNumber) o;
         return val == number.val;
+    }
+
+    // main testing method
+    public static void main(String[] args) {
+
+        // Test constructor and getValue
+        BaseNumber num1 = new BaseNumber(5);
+        System.out.println("Expected: 5, Actual: " + num1.getValue());
+
+        BaseNumber num2 = new BaseNumber(0);
+        System.out.println("Expected: 0, Actual: " + num2.getValue());
+
+        BaseNumber num3 = new BaseNumber(-3);
+        System.out.println("Expected: -3, Actual: " + num3.getValue());
+
+        // Test setValue
+        num1.setValue(10);
+        System.out.println("Expected: 10, Actual: " + num1.getValue());
+
+        num1.setValue(-5);
+
     }
 
 }
